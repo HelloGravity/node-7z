@@ -19,7 +19,8 @@ module.exports = function (command) {
     if (typeof command !== 'string') {
       return reject(new Error('Command must be a string'));
     }
-    var args = command.split(' ');
+    //replaces any \0 with a ' ' (paths were sanitized from spaces)
+    var args = command.split(' ').map(function (arg) { return arg.replace('\0', ' '); });
     var cmd  = args[0];
     args.shift();
     
