@@ -20,7 +20,7 @@ module.exports = function (command) {
       return reject(new Error('Command must be a string'));
     }
     //replaces any \0 with a ' ' (paths were sanitized from spaces)
-    var args = command.split(' ').map(function (arg) { return arg.replace('\0', ' '); });
+    var args = command.split(' ').map(function (arg) { return arg.split('\0').join(' '); });
     var cmd  = args[0];
     args.shift();
     
