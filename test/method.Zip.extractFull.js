@@ -44,8 +44,8 @@ it('should work with spaces in both source and destination', function (done) {
     extractFull('.tmp/Folder From/Folder A/Folder B/Folder C/zip file.7z','.tmp/Folder To/Folder D/Folder E/Folder F/')
     .then(function () {
       expect(fs.existsSync('.tmp/Folder To/Folder D/Folder E/Folder F/zip')).to.be.eql(true);
-     fs.removeSync('.tmp/Folder From/');
-    fs.removeSync('.tmp/Folder To/');
+      fs.removeSync('.tmp/Folder From/');
+      fs.removeSync('.tmp/Folder To/');
       done();
     });
   });
