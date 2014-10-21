@@ -38,5 +38,15 @@ describe('Method: `Zip.extractFull`', function () {
       done();
     });
   });
-  
+it('should work with spaces in both source and destination', function (done) {
+    fs.copySync('test/zip.7z','.tmp/Folder From/Folder A/Folder B/Folder C/zip file.7z');
+    fs.mkdirsSync('.tmp/Folder To/Folder D/Folder E/Folder F/');
+    extractFull('.tmp/Folder From/Folder A/Folder B/Folder C/zip file.7z','.tmp/Folder To/Folder D/Folder E/Folder F/')
+    .then(function () {
+      expect(fs.existsSync('.tmp/Folder To/Folder D/Folder E/Folder F/zip')).to.be.eql(true);
+     fs.removeSync('.tmp/Folder From/');
+    fs.removeSync('.tmp/Folder To/');
+      done();
+    });
+  });
 });
