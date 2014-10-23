@@ -16,7 +16,10 @@ module.exports = function (switches) {
     if (switches[s] === true) {
       concat += '-' + s + ' ';
     }
-    if (typeof switches[s] !== 'boolean') {
+    else if (typeof switches[s] === 'string') {
+      concat += '-' + s + switches[s].split(' ').join('\0') + ' ';
+    } 
+    else if (typeof switches[s] !== 'boolean') {
       concat += '-' + s + switches[s] + ' ';
     }
     
