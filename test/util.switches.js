@@ -38,7 +38,7 @@ describe('Utility: `switches`', function () {
     });
     expect(r).to.contain('-ssc');
     expect(r).to.contain('-ssw');
-    expect(r).to.contain('m0=BCJ -m1=LZMA:d=21');
+    expect(r).to.contain('m0=BCJ\0-m1=LZMA:d=21');
     expect(r).to.contain('-y');
   });
   
